@@ -24,11 +24,22 @@ public class LinkedList extends Perlakuan {
         }
 
         Node curr = head;
-        while (curr.getNext() != null && curr.getNext().getValue() != value)  { //curr.next.value != value) ini tuh maksudnya dia ngecek kalo value selajutnya value yang dicari atau bukan, kalo sama dengan yang dicari maka berarti while stop, terus kalo nggak sama maka lanjut nyari lagi bray
+        while (curr.getNext() != null && curr.getNext().getValue() != value) {
             curr = curr.getNext();
         }
         if (curr.getNext() != null) {
-            curr.setNext(curr.getNext().getNext()) ;
+            curr.setNext(curr.getNext().getNext());
         }
+    }
+
+    // Menyalin isi LinkedList ke objek baru untuk pengujian adil
+    public LinkedList copy() {
+        LinkedList newList = new LinkedList();
+        Node curr = this.head;
+        while (curr != null) {
+            newList.add(curr.getValue());
+            curr = curr.getNext();
+        }
+        return newList;
     }
 }
